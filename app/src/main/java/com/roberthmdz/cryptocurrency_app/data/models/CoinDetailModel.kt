@@ -34,7 +34,7 @@ data class CoinDetailModel(
     val started_at: String,
     val symbol: String,
     val tags: List<Tag>,
-    val team: List<Team>,
+    val team: List<TeamMember>,
     val type: String,
     val whitepaper: Whitepaper
 )
