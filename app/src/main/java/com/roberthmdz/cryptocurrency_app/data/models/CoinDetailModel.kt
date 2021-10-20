@@ -1,6 +1,8 @@
 package com.roberthmdz.cryptocurrency_app.data.models
 
 import com.google.gson.annotations.SerializedName
+import com.roberthmdz.cryptocurrency_app.domain.entities.Coin
+import com.roberthmdz.cryptocurrency_app.domain.entities.CoinDetail
 
 data class CoinDetailModel(
     val description: String,
@@ -38,3 +40,16 @@ data class CoinDetailModel(
     val type: String,
     val whitepaper: Whitepaper
 )
+
+fun CoinDetailModel.toCoin(): CoinDetail {
+    return CoinDetail(
+        coinId = id,
+        name = name,
+        description = description,
+        symbol = symbol,
+        rank = rank,
+        isActive = isActive,
+        tags = tags.map { it.name },
+        team = team
+    )
+}
