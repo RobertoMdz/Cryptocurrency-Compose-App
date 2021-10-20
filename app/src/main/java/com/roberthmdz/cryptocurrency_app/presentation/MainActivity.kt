@@ -1,14 +1,11 @@
-package com.roberthmdz.cryptocurrency_app
+package com.roberthmdz.cryptocurrency_app.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
-import com.roberthmdz.cryptocurrency_app.ui.theme.CryptocurrencyAppTheme
+import com.roberthmdz.cryptocurrency_app.presentation.ui.theme.CryptocurrencyAppTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
