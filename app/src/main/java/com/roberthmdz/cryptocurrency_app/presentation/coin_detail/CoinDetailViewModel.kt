@@ -25,6 +25,7 @@ class CoinDetailViewModel @Inject constructor(
     val state: State<CoinDetailState> = _state
 
     init {
+        // Get the coinId directly from the navigation argument passed to CoinDetail screen
         savedStateHandle.get<String>( Constants.PARAM_COIN_ID)?.let {
             coinId -> getCoin(coinId)
         }
