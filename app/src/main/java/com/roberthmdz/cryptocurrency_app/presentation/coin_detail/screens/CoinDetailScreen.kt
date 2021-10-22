@@ -69,7 +69,7 @@ fun CoinDetailScreen(
                         crossAxisSpacing = 10.dp,
                         modifier = Modifier.fillMaxWidth()
                     ) {
-                        coin.tags.forEach { tag ->
+                        coin.tags?.forEach { tag ->
                             CoinTag(tag = tag)
                         }
                     }
@@ -80,15 +80,18 @@ fun CoinDetailScreen(
                     )
                     Spacer(modifier = Modifier.height(15.dp))
                 }
-                items(coin.team) { teamMember ->
-                    TeamListItem(
-                        teamMember = teamMember,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(10.dp)
-                    )
-                    Divider()
+                coin.team?.let {
+                    items(coin.team) { teamMember ->
+                        TeamListItem(
+                            teamMember = teamMember,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(10.dp)
+                        )
+                        Divider()
+                    }
                 }
+
             }
         }
         if(state.error.isNotBlank()) {
