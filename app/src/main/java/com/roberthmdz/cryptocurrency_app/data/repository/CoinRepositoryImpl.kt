@@ -7,6 +7,7 @@ import com.roberthmdz.cryptocurrency_app.data.models.toCoinDetail
 import com.roberthmdz.cryptocurrency_app.domain.entities.Coin
 import com.roberthmdz.cryptocurrency_app.domain.entities.CoinDetail
 import com.roberthmdz.cryptocurrency_app.domain.repository.CoinRepository
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
 import java.io.IOException
@@ -27,7 +28,14 @@ class CoinRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getCoin(coinId: String): CoinDetail {
-        return api.getCoinById(coinId).toCoinDetail()
+    override suspend fun getCoin(coinId: String): Resource<CoinDetail>  {
+        return try {
+            val coin = api.getCoinById(coinId)
+            Resource.Success(coin.toCoinDetail())
+        } catch(e: HttpException) {
+            Resource.Error<CoinDetail>(e.localizedMessage ?: "An unexpected error occured")
+        } catch(e: IOException) {
+            Resource.Error<CoinDetail>("Couldn't reach server. Check your internet connection.")
+        }
     }
 }
