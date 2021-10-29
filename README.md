@@ -12,5 +12,8 @@ The app show a list of cryptocurrency items, and the deatils of the selected ite
 1. Clean architecture
 
 ## App
+https://user-images.githubusercontent.com/61483018/139364656-605d9e03-8a29-4a1f-8dd4-f7707a5879d1.mov
+
+
 
 
