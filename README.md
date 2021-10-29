@@ -8,4 +8,9 @@ The app show a list of cryptocurrency items, and the deatils of the selected ite
 3. Retrofit
 4. Accompanist Flowlayout
 
+## Architecture
+1. Clean architecture
+
+## App
+
 
